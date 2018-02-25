@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx-lb:
+    build: ./
+    container_name: nginx-lb
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ~/src/docker.nginx_lb/config/nginx:/etc/nginx
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+
+volumes:
+  certs:
+  certs-data:
